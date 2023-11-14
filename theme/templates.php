@@ -80,7 +80,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!--<a class="navbar-brand" href="<?php echo web_root; ?>index.php">--><img class="navbar-brand"  src="plugins/home-plugins/img/Joberfiedbanner.png" alt="logo" /> </a>
+                    <img class="navbar-brand"  src="/plugins/home-plugins/img/Joberfiedbanner.png" alt="logo" /> </a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav" style="float: right: margin-right: 2em;">
