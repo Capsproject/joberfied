@@ -121,7 +121,7 @@ img {
       <h3>Designer</h3>
       <p>I design stuff.</p>
     </div>
-    <img src="/JOBERFIED/plugins/home-plugins/img/romano.png" alt="">
+    <img src="plugins/home-plugins/img/romano.png" alt="">
     <figcaption>
       <h3>Romano Datinguinoo</h3>
 	  <span class="deg">Developer</span>
@@ -137,7 +137,7 @@ img {
       <h3>Coder</h3>
       <p>I code it all.</p>
     </div>
-    <img src="/JOBERFIED/plugins/home-plugins/img/ray.jpg" alt="">
+    <img src="plugins/home-plugins/img/ray.jpg" alt="">
     <figcaption>
       <h3>Ray Bantugon</h3>
 	  <span class="deg">Documentation</span>
@@ -153,7 +153,7 @@ img {
       <h3>Intern</h3>
       <p>I make their coffee.</p>
     </div>
-    <img src="/JOBERFIED/plugins/home-plugins/img/nelvin.jpg" alt="">
+    <img src="plugins/home-plugins/img/nelvin.jpg" alt="">
     <figcaption>
       <h3>Nelvin Jaylord Dalangin</h3>
 	  <span class="deg">Assistant Developer</span>

@@ -16,7 +16,7 @@
                     <div class="login-box"> 
                         <div class="login-box-body" style="border: solid 1px #ddd;padding: 35px;min-height: 350px;"> 
                  <!--logo image for login-->
-                        <img src="/JOBERFIED/plugins/home-plugins/img/joberfiedlogo.png" alt="showcase image" style="height:100px; width:100px;  display: block; margin-left: auto; margin-right: auto; margin-bottom: 40px;">
+                        <img src="plugins/home-plugins/img/joberfiedlogo.png" alt="showcase image" style="height:100px; width:100px;  display: block; margin-left: auto; margin-right: auto; margin-bottom: 40px;">
                         
                           <form action="" method="post">
                             <div class="form-group has-feedback">
