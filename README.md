@@ -4,21 +4,21 @@
 If your first time to code you need first clone this repo
 ```
 git clone https://github.com/Capsproject/joberfied.git
+```
 
-``
 Then make your own branch
 ```
 git checkout -b 'name ng branch mo'
+```
 
-`` 
 IF existing na sayo tong code at gusto mo iupdate ang code na galing dito sa repo na to 
 ```
 git checkout develop
-``
+```
 tapos gawa ka ulit bagong branch mo.
 ```
 git checkout -b 'name ng branch mo'
-
+```
 #Reminder
 Change Document root when your coding change it with your folder name
 ![image](https://github.com/Capsproject/joberfied/assets/102800815/ea56791f-32a4-40c3-9083-66aa5f1bf811)
