@@ -77,8 +77,7 @@
             foreach ($comp as $job) {
               // Your PHP code here
             ?>
-         
-  
+
   
               <div class="container" style="width: 80%;">
                 <div class="info-blocks-in" style="background-color: #fff; border-width: 1px; border-color: grey; box-shadow: 0 2px 3px 0 #ccc; border-radius: 10px; margin-top: 30px; padding-bottom: 30px;">
