@@ -30,7 +30,7 @@
                            
                           </form> 
                                                  
-                          <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Register a new membership</a>
+                          <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Create new account</a>
 
                         </div>
                         <!-- /.login-box-body -->
