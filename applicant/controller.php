@@ -40,7 +40,7 @@ switch ($action) {
 					$applicant->LNAME = $_POST['LNAME'];
 					$applicant->MNAME = $_POST['MNAME'];
 					$applicant->ADDRESS = $_POST['ADDRESS'];
-					$applicant->SEX = $_POST['optionsRadios'];
+					$applicant->SEX = $_POST['SEX'];
 					$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
 					$applicant->BIRTHDATE = $birthdate;
 					$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];

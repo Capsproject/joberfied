@@ -64,7 +64,7 @@ global $mydb;
 }
 </style>
 <form action="controller.php?action=approve" method="POST">
-<div class="col-sm-12 content-header" style="">View Details</div>
+<div class="col-sm-12 content-header" >View Details</div>
 <div class="col-sm-12 content-body" >  
 	<h3><?php echo $job->OCCUPATIONTITLE; ?></h3>
 	<input type="hidden" name="JOBREGID" value="<?php echo $jobreg->REGISTRATIONID;?>">
@@ -72,8 +72,6 @@ global $mydb;
 	<div class="col-sm-6">
 		<ul>
             <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
-            <li><i class="fp-ht-food"></i>Salary : <?php echo number_format($job->SALARIES,2);  ?></li>
-            <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $job->DURATION_EMPLOYEMENT; ?></li>
         </ul>
 	</div> 
 	<div class="col-sm-6">

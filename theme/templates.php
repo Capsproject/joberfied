@@ -83,7 +83,7 @@
                     <img class="navbar-brand"  src="/plugins/home-plugins/img/Joberfiedbanner.png" alt="logo" /> </a>
                 </div>
                 <div class="navbar-collapse collapse ">
-                    <ul class="nav navbar-nav" style="float: right: margin-right: 2em;">
+                    <ul class="nav navbar-nav" style="float: right; margin-right: 1em;">
                         <li class="<?php echo !isset($_GET['q'])? 'active' :''?>"><a href="<?php echo web_root; ?>index.php">Home</a></li> 
                         <li class="dropdown">
                           <a href="#" data-toggle="dropdown" class="dropdown-toggle">Job Search <b class="caret"></b></a>
@@ -190,7 +190,7 @@
 </div>
 
                   <li><a href="<?php echo web_root; ?>applicant/index.php?view=notification"><i class="fa fa-bell" ></i> <span class="label label-success"><?php echo $notif; ?></span></a></li>
-                      <li><a href="<?php echo web_root; ?>applicant/index.php?view=message"><i class="fa fa-envelope"></i> <span class="label label-success"><?php echo $msg; ?></span></a></li>
+                  <!--<li><a href="<?php echo web_root; ?>applicant/index.php?view=message"><i class="fa fa-envelope"></i> <span class="label label-success"><?php echo $msg; ?></span></a></li>-->
                       
 <?php } else { ?>
 <li class="pull-right login"><a data-target="#myModal" data-toggle="modal" href="">Login</a></li>
@@ -205,8 +205,9 @@
   <?php
     if (!isset($_SESSION['APPLICANTID'])) { 
       include("login.php");
-    }
-  ?>
+    
+  }
+      ?>
       <?php
 
       if (isset($_GET['q'])) {
@@ -220,13 +221,11 @@
                 </div>
             </div>
             </section>';
-      }
-
-
-       require_once $content;
-
+      } 
+    
+      require_once $content;
         ?>   
- 
+
 
   <footer>
   <div class="container">

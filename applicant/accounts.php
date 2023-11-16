@@ -9,7 +9,7 @@
     }
   </style>
 <form class="form-horizontal" method="POST" action="controller.php?action=edit">  
-      <div class="container">  
+     
             <div class="box-header with-border">
               <h3 class="box-title">Accounts</h3>
  
@@ -64,8 +64,24 @@
                   </div>
                 </div>
               </div> 
-
+              
               <div class="form-group">
+                <div class="col-md-11">
+                  <label class="col-md-4 control-label" for=
+                  "SEX">Civil Status:</label>
+
+                  <div class="col-md-8">
+                    <select class="form-control input-sm" name="SEX" id="SEX" any value="<?php echo $appl->SEX;?>" required  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+                        <option value="<?php echo $appl->SEX;?>" ><?php echo $appl->SEX;?></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      
+                    </select> 
+                  </div>
+                </div>
+              </div>  
+
+          <!--    <div class="form-group">
                 <div class="col-md-11">
                   <label class="col-md-4 control-label" for=
                   "Gender">Sex:</label>
@@ -85,7 +101,7 @@
                    
                   </div>
                 </div>
-              </div> 
+              </div> -->
 
                <div class="form-group">
                 <div class="col-md-11">
@@ -178,7 +194,6 @@
                     </div>
                 </div>
               </div>  
-           
-          </div>  
+         
  </form>
  
