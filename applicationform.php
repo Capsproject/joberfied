@@ -43,15 +43,17 @@ if (isset($_SESSION['APPLICANTID'])) {
                                         </div>
                                         <div class="col-sm-12">
                                             <p>Qualification/Work Experience :</p>
-                                             <ul style="list-style: none;"> 
-                                                <li><?php echo $result->QUALIFICATION_WORKEXPERIENCE ;?></li> 
-                                            </ul> 
+                                            <ul style="list-style: none;"> 
+                                                    <li><?php $qwe = str_replace(array('\rn','\r', '\n'), array('<br>','<br>', ''), $result->QUALIFICATION_WORKEXPERIENCE);
+                                                    echo $qwe ;?></li> 
+                                                </ul>  
                                         </div>
                                         <div class="col-sm-12"> 
                                             <p>Job Description:</p>
                                             <ul style="list-style: none;"> 
-                                                 <li><?php echo $result->JOBDESCRIPTION ;?></li> 
-                                            </ul> 
+                                                     <li><?php $jobdescription = str_replace(array('\r', '\n'), array('<br>', ''), $result->JOBDESCRIPTION);
+                                                     echo $jobdescription ;?></li> 
+                                                </ul> 
                                          </div>
                                         <div class="col-sm-12">
                                             <p>Employer :  <?php echo  $result->COMPANYNAME; ?></p> 
@@ -114,8 +116,6 @@ if (isset($_SESSION['APPLICANTID'])) {
                                         <div class="col-sm-6">
                                             <ul>
                                                 <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $result->REQ_NO_EMPLOYEES; ?></li>
-                                                <li><i class="fp-ht-food"></i>Salary : <?php echo number_format($result->SALARIES,2);  ?></li>
-                                                <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $result->DURATION_EMPLOYEMENT; ?></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-6">
@@ -125,16 +125,18 @@ if (isset($_SESSION['APPLICANTID'])) {
                                             </ul>
                                         </div>
                                         <div class="col-sm-12">
-                                            <p>Qualification/Work Experience :</p>
-                                             <ul style="list-style: none;"> 
-                                                <li><?php echo $result->QUALIFICATION_WORKEXPERIENCE ;?></li> 
-                                            </ul> 
+                                            <p>Qualification/Work Experience </p>
+                                            <ul style="list-style: none;"> 
+                                                    <li><?php $qwe = str_replace(array('\rn','\r', '\n'), array('<br>','<br>', ''), $result->QUALIFICATION_WORKEXPERIENCE);
+                                                    echo $qwe ;?></li> 
+                                                </ul> 
                                         </div>
                                         <div class="col-sm-12"> 
                                             <p>Job Description:</p>
                                             <ul style="list-style: none;"> 
-                                                 <li><?php echo $result->JOBDESCRIPTION ;?></li> 
-                                            </ul> 
+                                                     <li><?php $jobdescription = str_replace(array('\r', '\n'), array('<br>', ''), $result->JOBDESCRIPTION);
+                                                     echo $jobdescription ;?></li> 
+                                                </ul>  
                                          </div>
                                         <div class="col-sm-12">
                                             <p>Employer :  <?php echo  $result->COMPANYNAME; ?></p> 
