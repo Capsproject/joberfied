@@ -14,7 +14,6 @@
     $mydb->setQuery($sql);
     $cur = $mydb->loadResultList();
 
-
     foreach ($cur as $result) {
         # code...
  
