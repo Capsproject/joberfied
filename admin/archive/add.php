@@ -7,10 +7,7 @@
   $res = $autonum->set_autonumber('employeeid');
 
  ?> 
-<?php 
-    $applicant = new Applicants();
-    $appl = $applicant->single_applicant($_SESSION['APPLICANTID']);
-  ?>
+
  <section id="feature" class="transparent-bg">
         <div class="container">
            <div class="center wow fadeInDown">
@@ -44,7 +41,7 @@
                         <div class="col-md-8">
                           <input name="deptid" type="hidden" value="">
                            <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
-                              "Firstname" type="text" value="<?php echo $appl->FNAME;?>"   autocomplete="off">
+                              "Firstname" type="text" value=""   autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -57,7 +54,7 @@
                         <div class="col-md-8">
                           <input name="deptid" type="hidden" value="">
                           <input  class="form-control input-sm" id="LNAME" name="LNAME" placeholder=
-                              "Lastname"  value="<?php echo $appl->LNAME;?>"   autocomplete="off">
+                              "Lastname"     autocomplete="off">
                           </div>
                       </div>
                     </div>
@@ -70,7 +67,7 @@
                         <div class="col-md-8">
                           <input name="deptid" type="hidden" value="">
                           <input  class="form-control input-sm" id="MNAME" name="MNAME" placeholder=
-                              "Middle Name"  value="<?php echo $appl->MNAME;?>"   autocomplete="off">
+                              "Middle Name"     autocomplete="off">
                            <!-- <input class="form-control input-sm" id="DEPARTMENT_DESC" name="DEPARTMENT_DESC" placeholder=
                               "Description" type="text" value=""> -->
                         </div>
@@ -84,8 +81,8 @@
 
                       <div class="col-md-8">
                         
-                         <input class="form-control input-sm" id="ADDRESS" name="ADDRESS" placeholder=
-                            "Address" type="text" value="<?php echo $appl->ADDRESS;?>" autocomplete="off"></input>
+                         <textarea class="form-control input-sm" id="ADDRESS" name="ADDRESS" placeholder=
+                            "Address" type="text" value="" required   autocomplete="off"></textarea>
                       </div>
                     </div>
                   </div> 
@@ -96,13 +93,21 @@
                       "Gender">Sex:</label>
 
                       <div class="col-md-8">
-                      <input class="form-control input-sm" id="SEX" name="SEX" placeholder=
-                            "sex" type="text" value="<?php echo $appl->SEX;?>" autocomplete="off"></input>
+                         <div class="col-lg-5">
+                            <div class="radio">
+                              <label><input checked id="optionsRadios1" checked="True" name="optionsRadios" type="radio" value="Female">Female</label>
+                            </div>
                           </div>
 
+                          <div class="col-lg-4">
+                            <div class="radio">
+                              <label><input id="optionsRadios2"   name="optionsRadios" type="radio" value="Male"> Male</label>
+                            </div>
+                          </div> 
+                         
                       </div>
                     </div>
-                  
+                  </div>
 
                           <div class="form-group">
                             <div class="col-md-8">
@@ -110,10 +115,13 @@
                               "BIRTHDATE">Date of Birth:</label>
 
                               <div class="col-md-8">
-                      <input class="form-control input-sm" id="BIRTHDATE" name="BIRTHDATE" placeholder=
-                            "Birthday" type="text" value="<?php echo $appl->BIRTHDATE;?>" autocomplete="off"></input>
-                          </div>
-                           
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 
+                                     <i class="fa fa-calendar"></i> 
+                                    </span>  
+                                     <input class="form-control input-sm date_picker" id="BIRTHDATE" name="BIRTHDATE" placeholder="Date of Birth" type="text"    value="" required  autocomplete="off">
+                                </div>
+                              </div>
                             </div>
                           </div>
 
@@ -124,8 +132,8 @@
 
                                   <div class="col-md-8">
                                     
-                                     <input class="form-control input-sm" id="BIRTHPLACE" name="BIRTHPLACE" placeholder=
-                                        "Place of Birth" type="text" value="<?php echo $appl->BIRTHPLACE;?>" required   autocomplete="off"></input>
+                                     <textarea class="form-control input-sm" id="BIRTHPLACE" name="BIRTHPLACE" placeholder=
+                                        "Place of Birth" type="text" value="" required   autocomplete="off"></textarea>
                                   </div>
                                 </div>
                               </div> 
@@ -139,7 +147,7 @@
                                 <div class="col-md-8">
                                   
                                    <input class="form-control input-sm" id="TELNO" name="TELNO" placeholder=
-                                      "Contact No." type="text" any value="<?php echo $appl->CONTACTNO;?>" required   autocomplete="off">
+                                      "Contact No." type="text" any value="" required   autocomplete="off">
                                 </div>
                               </div>
                             </div> 
@@ -150,8 +158,13 @@
                                 "CIVILSTATUS">Civil Status:</label>
 
                                 <div class="col-md-8">
-                                <input class="form-control input-sm" id="TELNO" name="TELNO" placeholder=
-                                      "Contact No." type="text" any value="<?php echo $appl->CIVILSTATUS;?>" required   autocomplete="off">
+                                  <select class="form-control input-sm" name="CIVILSTATUS" id="CIVILSTATUS">
+                                      <option value="none" >Select</option>
+                                      <option value="Single">Single</option>
+                                      <option value="Married">Married</option>
+                                      <option value="Widow" >Widow</option>
+                                      <!-- <option value="Fourth" >Fourth</option> -->
+                                  </select> 
                                 </div>
                               </div>
                             </div>
@@ -172,10 +185,10 @@
                         <!--     <div class="form-group">
                               <div class="col-md-8">
                                 <label class="col-md-4 control-label" for=
-                                "WORKSTATS">Work Status:</label>
+                                "ARCHIVE">Work Status:</label>
 
                                 <div class="col-md-8">
-                                  <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
+                                  <select class="form-control input-sm" name="ARCHIVE" id="ARCHIVE">
                                       <option value="none" >Select</option>
                                       <option value="Regular">Temporary</option> 
                                       <option value="Regular">Regular</option>
@@ -203,7 +216,7 @@
                                 <label class="col-md-4 control-label" for=
                                 "EMP_EMAILADDRESS">Email Address:</label> 
                                 <div class="col-md-8">
-                                   <input type="Email" class="form-control input-sm" id="EMP_EMAILADDRESS" name="EMP_EMAILADDRESS" placeholder="Email Address" value="<?php echo $appl->EMAILADDRESS;?>"  autocomplete="false"/> 
+                                   <input type="Email" class="form-control input-sm" id="EMP_EMAILADDRESS" name="EMP_EMAILADDRESS" placeholder="Email Address"   autocomplete="false"/> 
                                 </div>
                               </div>
                             </div>  
@@ -212,19 +225,21 @@
                                 <div class="col-md-8">
                                   <label class="col-md-4 control-label" for=
                                   "COMPANYNAME">Company Name:</label>
-                                  <?php 
-                                       $mydb->setQuery("SELECT * FROM `tblcompany` c  , `tbljobregistration` j, `tbljob` j2, `tblapplicants` a WHERE c.`COMPANYID`=j.`COMPANYID` AND  j.`JOBID`=j2.`JOBID` AND j.`APPLICANTID`=a.`APPLICANTID` ");
-                                       $cur = $mydb->loadResultList();
-                   
-                                     foreach ($cur as $result) { 
-                                        }
-                                      ?>
+
                                   <div class="col-md-8">
-                                    <input class="form-control input-sm" id="COMPANYNAME" name="COMPANYNAME" value="<?php echo $result->COMPANYNAME;?>">
-                                      
-                       
-                                      
-                                        </input>
+                                    <select class="form-control input-sm" id="COMPANYID" name="COMPANYID">
+                                      <option value="None">Select</option>
+                                      <?php 
+                                        $sql ="Select * From tblcompany";
+                                        $mydb->setQuery($sql);
+                                        $res  = $mydb->loadResultList();
+                                        foreach ($res as $row) {
+                                          # code...
+                                          echo '<option value='.$row->COMPANYID.'>'.$row->COMPANYNAME.'</option>';
+                                        }
+
+                                      ?>
+                                    </select>
                                   </div>
                                 </div>
                               </div>  

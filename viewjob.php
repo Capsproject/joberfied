@@ -1,5 +1,5 @@
 
-    <section id="content">
+<section id="content">
         <div class="container content">      
      
  <?php
@@ -13,6 +13,7 @@
     $sql = "SELECT * FROM `tblcompany` c,`tbljob` j WHERE c.`COMPANYID`=j.`COMPANYID` AND JOBID LIKE '%" . $jobid ."%' ORDER BY DATEPOSTED DESC" ;
     $mydb->setQuery($sql);
     $cur = $mydb->loadResultList();
+
 
     foreach ($cur as $result) {
         # code...
@@ -47,13 +48,15 @@
                                             <div class="col-sm-12">
                                                 <p>Qualification/Work Experience :</p>
                                                  <ul style="list-style: none;"> 
-                                                    <li><?php echo $result->QUALIFICATION_WORKEXPERIENCE ;?></li> 
+                                                    <li><?php $qwe = str_replace(array('\rn','\r', '\n'), array('<br>','<br>', ''), $result->QUALIFICATION_WORKEXPERIENCE);
+                                                    echo $qwe ;?></li> 
                                                 </ul> 
                                             </div>
                                             <div class="col-sm-12"> 
                                                 <p>Job Description:</p>
                                                 <ul style="list-style: none;"> 
-                                                     <li><?php echo $result->JOBDESCRIPTION ;?></li> 
+                                                     <li><?php $jobdescription = str_replace(array('\r', '\n'), array('<br>', ''), $result->JOBDESCRIPTION);
+                                                     echo $jobdescription ;?></li> 
                                                 </ul> 
                                              </div>
                                             <div class="col-sm-12">
@@ -68,7 +71,6 @@
                         </div>
                     </div>
             </div>                        
-
-     
+           
 <?php  } ?>    </div>
     </section> 

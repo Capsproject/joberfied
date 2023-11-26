@@ -74,8 +74,12 @@ global $mydb;
 	<div class="col-sm-6">
 		<ul>
             <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
+        </ul>
+	</div> 
+	<div class="col-sm-6">
+		<ul> 
             <li><i class="fp-ht-tv"></i>Prefered Sex : <?php echo $job->PREFEREDSEX; ?></li>
-            <li><i class="fp-ht-computer"></i>Sector of Vacancy: <?php echo $job->SECTOR_VACANCY; ?></li>
+            <li><i class="fp-ht-computer"></i>Sector of Vacancy : <?php echo $job->SECTOR_VACANCY; ?></li>
         </ul>
 	</div>
 	<div class="col-sm-12">

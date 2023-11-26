@@ -229,6 +229,11 @@
             <i class="fa fa-user"></i> <span>Manage Users</span> 
           </a>
         </li>
+        <li class="<?php echo (currentpage() == 'archive') ? "active" : false;?>" > 
+          <a href="<?php echo web_root ;?>admin/archive/">
+            <i class="fa fa-archive"></i> <span>Archive</span>  
+          </a>
+        </li>  
       </ul>
     </section>
     <!-- /.sidebar -->
