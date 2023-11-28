@@ -1,9 +1,9 @@
 <section id="content">
   <div class="container content">     
  <?php
-if (isset($_GET['search'])) {
+if (isset($_GET['job'])) {
 # code...
-$jobid = $_GET['search'];
+$jobid = $_GET['job'];
 }else{
 $jobid = '';
 
@@ -19,6 +19,14 @@ $result = $mydb->loadSingleResult();
  <p> <?php check_message();?></p>     
 <?php 
 if (isset($_SESSION['APPLICANTID'])) {
+    $applicant = new Applicants();
+    $appl = $applicant->single_applicant($_SESSION['APPLICANTID']);
+
+    $userAttachmentID = $appl->APPLICANTID; 
+    $sql2 = "SELECT * FROM `tblattachmentfile` WHERE `USERATTACHMENTID` = " . $userAttachmentID . " ORDER BY `ID` DESC LIMIT 1";
+
+    $mydb->setQuery($sql2);
+    $attachmentfile = $mydb->loadSingleResult();
 ?>
     <div class="col-sm-12">
                    <div class="row">
@@ -74,8 +82,24 @@ if (isset($_SESSION['APPLICANTID'])) {
                 <div class="row">
                     <div class="panel panel-default">
                         <div class="panel-header">
-                            <div style="border-bottom: 1px solid #ddd;padding: 10px;font-size: 25px;font-weight: bold;color: #000;margin-bottom: 5px;">Attach your Resume here.
+                            <h6 for="">
+                                <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>" target="_blank">View Resume</a></h3>
+                            </h6>
                                 <input name="JOBID" type="hidden" value="<?php echo $_GET['job'];?>">
+                            </div>
+                        </div>
+                        <!-- <div class="panel-body"> 
+                            <label class="col-md-2" for="picture" style="padding: 0;margin: 0;">Attachment File:</label> 
+                            <div class="col-md-10" style="padding: 0;margin: 0;">
+                                <input id="picture" name="picture" type="file">
+                                <input name="MAX_FILE_SIZE" type="hidden" value="1000000"> 
+                            </div> 
+                        </div> -->
+
+                    <!-- <div class="panel panel-default">
+                        <div class="panel-header">
+                            <div style="border-bottom: 1px solid #ddd;padding: 10px;font-size: 25px;font-weight: bold;color: #000;margin-bottom: 5px;">Attach your Resume here.
+                                <input name="JOBID" type="hidden" value=">
                             </div>
                         </div>
                         <div class="panel-body"> 
@@ -85,7 +109,7 @@ if (isset($_SESSION['APPLICANTID'])) {
                                 <input name="MAX_FILE_SIZE" type="hidden" value="1000000"> 
                             </div> 
                         </div>
-                    </div> 
+                    </div>  -->
                 </div> 
             </div>
            <div class="form-group">

@@ -19,7 +19,7 @@ global $mydb;
 	$comp = $company->single_company($jobreg->COMPANYID);
 	 // `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 
-	$sql = "SELECT * FROM `tblattachmentfile` WHERE `FILEID`=" .$jobreg->FILEID;
+	 $sql = "SELECT * FROM `tblattachmentfile` WHERE `USERATTACHMENTID`=" .$appl->APPLICANTID. " ORDER BY `ID` DESC LIMIT 1";
 	$mydb->setQuery($sql);
 	$attachmentfile = $mydb->loadSingleResult();
 
@@ -98,7 +98,7 @@ global $mydb;
 <div class="col-sm-12 content-footer">
 <p><i class="fa fa-paperclip"></i>  Attachment Files</p>
 	<div class="col-sm-12 slider">
-		 <h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>">Here</a></h3>
+		 <h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>" target="_blank">Here</a></h3>
 	</div>  
 	<div class="col-sm-12">
 		<p>Feedback</p>

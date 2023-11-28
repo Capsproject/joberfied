@@ -19,7 +19,7 @@ global $mydb;
 	$comp = $company->single_company($jobreg->COMPANYID);
 	 // `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 
-	$sql = "SELECT * FROM `tblattachmentfile` WHERE `FILEID`=" .$jobreg->FILEID;
+	$sql = "SELECT * FROM `tblattachmentfile` WHERE `USERATTACHMENTID`=" .$jobreg->APPLICANTID . " ORDER BY `ID` DESC LIMIT 1";
 	$mydb->setQuery($sql);
 	$attachmentfile = $mydb->loadSingleResult();
 
@@ -67,7 +67,6 @@ global $mydb;
 <div class="col-sm-12 content-header" style="">View Details</div>
 <div class="col-sm-6 content-body" > 
 	<p>Job Details</p> 
-	<h3><?php echo $job->OCCUPATIONTITLE; ?></h3>
 	<input type="hidden" name="JOBREGID" value="<?php echo $jobreg->REGISTRATIONID;?>">
 	<input type="hidden" name="APPLICANTID" value="<?php echo $appl->APPLICANTID;?>">
 

@@ -170,10 +170,6 @@ switch ($action) {
 
 
 		}
-  	
-	 
-	}
-
 } 
 	function doDelete(){
 		

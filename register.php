@@ -1,7 +1,7 @@
 <section id="content">
     <div class="container content">    
      <p> <?php check_message();?></p>      
-		<form class="row form-horizontal span6  wow fadeInDown" action="process.php?action=register" method="POST">
+		<form class="row form-horizontal span6  wow fadeInDown" action="process.php?action=register" method="POST" enctype="multipart/form-data">
 		<h2 class=" ">Personal Info</h2>
 		<div class="row"> 
 		    <div class="form-group">

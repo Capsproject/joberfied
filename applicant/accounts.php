@@ -2,13 +2,20 @@
   <?php 
     $applicant = new Applicants();
     $appl = $applicant->single_applicant($_SESSION['APPLICANTID']);
+
+    $userAttachmentID = $appl->APPLICANTID; 
+    $sql = "SELECT * FROM `tblattachmentfile` WHERE `USERATTACHMENTID` = " . $userAttachmentID . " ORDER BY `ID` DESC LIMIT 1";
+
+    $mydb->setQuery($sql);
+    $attachmentfile = $mydb->loadSingleResult();
+  
   ?>
   <style type="text/css">
     .form-group {
       margin-bottom: 5px;
     }
   </style>
-<form class="form-horizontal" method="POST" action="controller.php?action=edit">  
+<form class="form-horizontal" method="POST" action="controller.php?action=edit" enctype="multipart/form-data">  
      
             <div class="box-header with-border">
               <h3 class="box-title">Accounts</h3>
@@ -21,7 +28,6 @@
                   "FNAME">Firstname:</label>
 
                   <div class="col-md-8">
-                   
                      <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
                         "Firstname" type="text" value="<?php echo $appl->FNAME;?>"  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
                   </div>
@@ -183,7 +189,30 @@
                         "Educational Attainment"    onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off" value="<?php echo $appl->DEGREE;?>">
                     </div>
                 </div>
-              </div>  
+              </div>
+
+              <!-- <div class="form-group">
+                <div class="col-md-11">
+                  <label class="col-md-4 control-label" for=
+                  "Upload New Resume">Upload New Resume:</label>
+
+                  <div class="col-md-8">
+                      <input id="picture" name="picture" type="file">
+                      <input name="MAX_FILE_SIZE" type="hidden" value="1000000"> 
+                  </div> 
+                </div>
+              </div> -->
+
+              <div class="form-group">
+                <div class="col-md-11">
+                    <label class="col-md-4 control-label" for=
+                    "resume">Resume:</label>
+                    <div class="col-md-8"> 
+                    <a class="btn btn-primary" href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>" target="_blank">View Resume</a>
+                    </div>
+                </div>
+              </div>
+
               <div class="form-group">
                 <div class="col-md-11">
                   <label class="col-md-4 control-label" for=
