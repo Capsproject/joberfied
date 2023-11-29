@@ -93,53 +93,7 @@
        
    }
 
-   switch ($emp->WORKSTATS) {
-
-     case 'Regular':
-       # code...
-        $workstatus ='
-        <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
-                                      <option value="none" >Select</option>
-                                      <option value="Temporary">Temporary</option>
-                                      <option SELECTED  value="Regular">Regular</option>
-                                      <option value="Probationary">Probationary</option> 
-                                  </select> ';
-       break;
-
-     case 'Regular':
-       # code...
-        $workstatus ='
-        <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
-                                      <option value="none" >Select</option>
-                                      <option value="Temporary">Temporary</option>
-                                      <option SELECTED value="Regular">Regular</option>
-                                      <option value="Probationary">Probationary</option> 
-                                  </select> ';
-       break;
-     case 'Probationary':
-       # code...
-         $workstatus='
-         <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
-                                      <option value="none" >Select</option>
-                                      <option value="Temporary">Temporary</option>
-                                      <option value="Regular">Regular</option>
-                                      <option SELECTED value="Probationary">Probationary</option> 
-                                  </select> ';
-
-       break; 
-	   
-     default:
-        $workstatus='
-       <select class="form-control input-sm" name="WORKSTATS" id="WORKSTATS">
-                                      <option SELECTED value="none" >Select</option>
-                                      <option value="Temporary">Temporary</option>
-                                      <option value="Regular">Regular</option>
-                                      <option value="Probationary">Probationary</option> 
-                                  </select> ';
-        break;
-       
-   }
-
+   
   
  ?> 
  

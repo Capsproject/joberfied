@@ -162,7 +162,7 @@ switch ($action) {
 
 					$emp->update($_POST['EMPLOYEEID']);
  
-
+			}
 				message("Employee has been updated!", "success");
 				// redirect("index.php?view=view&id=".$_POST['EMPLOYEEID']);
 		       redirect("index.php?view=edit&id=".$_POST['EMPLOYEEID']);

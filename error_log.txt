@@ -70,3 +70,51 @@ Stack trace:
 #0 C:\xampp\htdocs\JOBERFIED\index.php(2): require_once()
 #1 {main}
   thrown in C:\xampp\htdocs\JOBERFIED\include\initialize.php on line 14
+[28-Nov-2023 12:23:54 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 12:23:54 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 12:23:54 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[28-Nov-2023 12:33:16 Europe/Berlin] PHP Warning:  Undefined property: Applicants::$202344784 in C:\xampp\htdocs\joberfied\process.php on line 183
+[28-Nov-2023 12:33:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\joberfied\include\database.php:40
+Stack trace:
+#0 C:\xampp\htdocs\joberfied\include\database.php(40): mysqli_query(Object(mysqli), 'INSERT INTO `tb...')
+#1 C:\xampp\htdocs\joberfied\process.php(208): Database->executeQuery()
+#2 C:\xampp\htdocs\joberfied\process.php(10): doRegister()
+#3 {main}
+  thrown in C:\xampp\htdocs\joberfied\include\database.php on line 40
+[28-Nov-2023 12:46:13 Europe/Berlin] PHP Warning:  Undefined property: Applicants::$202393288 in C:\xampp\htdocs\joberfied\process.php on line 183
+[28-Nov-2023 12:46:13 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\joberfied\include\database.php:40
+Stack trace:
+#0 C:\xampp\htdocs\joberfied\include\database.php(40): mysqli_query(Object(mysqli), 'INSERT INTO `tb...')
+#1 C:\xampp\htdocs\joberfied\process.php(208): Database->executeQuery()
+#2 C:\xampp\htdocs\joberfied\process.php(10): doRegister()
+#3 {main}
+  thrown in C:\xampp\htdocs\joberfied\include\database.php on line 40
+[28-Nov-2023 12:49:21 Europe/Berlin] PHP Warning:  Undefined property: Applicants::$202398732 in C:\xampp\htdocs\joberfied\process.php on line 183
+[28-Nov-2023 12:49:21 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\joberfied\include\database.php:40
+Stack trace:
+#0 C:\xampp\htdocs\joberfied\include\database.php(40): mysqli_query(Object(mysqli), 'INSERT INTO `tb...')
+#1 C:\xampp\htdocs\joberfied\process.php(208): Database->executeQuery()
+#2 C:\xampp\htdocs\joberfied\process.php(10): doRegister()
+#3 {main}
+  thrown in C:\xampp\htdocs\joberfied\include\database.php on line 40
+[28-Nov-2023 13:00:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:00:51 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:00:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[28-Nov-2023 13:02:02 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:02:02 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:02:02 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[28-Nov-2023 13:21:59 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:21:59 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:21:59 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[28-Nov-2023 13:22:05 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:22:05 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:22:05 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[28-Nov-2023 13:22:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:22:21 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 13:22:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[28-Nov-2023 15:57:14 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 15:57:14 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[28-Nov-2023 15:57:14 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[29-Nov-2023 07:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[29-Nov-2023 07:17:53 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[29-Nov-2023 07:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74

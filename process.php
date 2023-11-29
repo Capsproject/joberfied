@@ -180,7 +180,7 @@ function doRegister(){
 			$applicantID = generateRandomApplicantID();
 
 			$applicant =New Applicants();
-			$applicant->$applicantID;
+			$applicant->APPLICANTID = $applicantID;
 			$applicant->FNAME = $_POST['FNAME'];
 			$applicant->LNAME = $_POST['LNAME'];
 			$applicant->MNAME = $_POST['MNAME'];
@@ -200,10 +200,10 @@ function doRegister(){
 			// upload resume here
 			global $mydb;
 			$picture = UploadImage();
-			$location = "applicant/photos/". $picture ;
+			$location = "photos/". $picture ;
 	
 			$sql = "INSERT INTO `tblattachmentfile` (`JOBID`, `FILE_NAME`, `FILE_LOCATION`, `USERATTACHMENTID`) 
-                VALUES ('', '', 'Resume', '{$location}', '{applicantID}')";
+             VALUES ('', 'Resume', '{$location}', '{$applicantID}')";
         	$mydb->setQuery($sql);
 			$res = $mydb->executeQuery();
 	

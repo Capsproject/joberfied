@@ -45,7 +45,7 @@
 									  echo '<td align="center">
 									  <a title="View" href="index.php?view=view&id='.$result->REGISTRATIONID.'"  class="btn btn-info btn-xs  ">
 					  		             <span class="fa fa-info fw-fa"></span> View</a> 
-					  		             <a title="Archive" <a href="../employee/index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Employee</a>
+					  		             <a title="Add" <a href="../employee/index.php?view=add&id='.$result->APPLICANTID.'&jobid='.$result->JOBID.'&regid='.$result->REGISTRATIONID.'" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Employee</a>
 					  		             
 					  					 </td>';
 							  		echo '</tr>'; 

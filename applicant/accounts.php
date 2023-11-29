@@ -191,7 +191,7 @@
                 </div>
               </div>
 
-              <!-- <div class="form-group">
+              <div class="form-group">
                 <div class="col-md-11">
                   <label class="col-md-4 control-label" for=
                   "Upload New Resume">Upload New Resume:</label>
@@ -201,7 +201,7 @@
                       <input name="MAX_FILE_SIZE" type="hidden" value="1000000"> 
                   </div> 
                 </div>
-              </div> -->
+              </div>
 
               <div class="form-group">
                 <div class="col-md-11">

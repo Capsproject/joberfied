@@ -1,15 +1,19 @@
-<?php 
- if(!isset($_SESSION['ADMIN_USERID'])){
-    redirect(web_root."admin/index.php");
-   }
+<?php
+if (!isset($_SESSION['ADMIN_USERID'])) {
+    redirect(web_root . "admin/index.php");
+}
 
-  $autonum = New Autonumber();
-  $res = $autonum->set_autonumber('employeeid');
+$autonum = new Autonumber();
+$res = $autonum->set_autonumber('employeeid');
 
- ?> 
+?>
+
 <?php 
     $applicant = new Applicants();
-    $appl = $applicant->single_applicant($_SESSION['APPLICANTID']);
+    $appl = $applicant->single_applicant($_GET['id']);
+    // $appl = $_GET['id'];
+    $jobid = $_GET['jobid'];
+    $regid = $_GET['regid'];
   ?>
  <section id="feature" class="transparent-bg">
         <div class="container">
@@ -17,7 +21,7 @@
                  <h2 class="page-header">Add New Employee</h2>
                 <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p> -->
             </div>
-               
+            
             <div class="row">
                 <div class="features">
  
@@ -27,12 +31,17 @@
                       <div class="col-md-8">
                         <label class="col-md-4 control-label" for=
                         "EMPLOYEEID">Employee ID:</label>
-
+                        <input type="hidden" name="jobid" value="<?php echo $jobid?>">
                         <div class="col-md-8"> 
                            <!-- <input class="form-control input-sm" id="EMPLOYEEID" name="EMPLOYEEID" placeholder=
                               "Employee No" type="text" value="<?php echo $res->AUTO; ?>"> -->
                               <input class="form-control input-sm" id="EMPLOYEEID" name="EMPLOYEEID" placeholder=
                               "Employee ID" type="text" value="">
+
+                              <input type="hidden" name="regid" value="<?php echo $regid?>">
+
+                              <!-- <input class="form-control input-sm" id="EMPLOYEEID" type="text" value="<?php // echo $appl->APPLICANTID;?>" name="empid" placeholder=
+                              "Employee ID" "> -->
                      </div>
                       </div>
                     </div>           
@@ -44,7 +53,7 @@
                         <div class="col-md-8">
                           <input name="deptid" type="hidden" value="">
                            <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
-                              "Firstname" type="text" value="<?php echo $appl->FNAME;?>"   autocomplete="off">
+                              "Firstname" type="text" readonly value="<?php echo $appl->FNAME;?>"   autocomplete="off" >
                         </div>
                       </div>
                     </div>
@@ -207,7 +216,7 @@
                                 </div>
                               </div>
                             </div>  
-
+                           
                              <div class="form-group">
                                 <div class="col-md-8">
                                   <label class="col-md-4 control-label" for=
@@ -215,16 +224,30 @@
                                   <?php 
                                        $mydb->setQuery("SELECT * FROM `tblcompany` c  , `tbljobregistration` j, `tbljob` j2, `tblapplicants` a WHERE c.`COMPANYID`=j.`COMPANYID` AND  j.`JOBID`=j2.`JOBID` AND j.`APPLICANTID`=a.`APPLICANTID` ");
                                        $cur = $mydb->loadResultList();
+
+                                      //  SELECT * FROM `tblcompany` c  , `tbljobregistration` j, `tbljob` j2, `tblapplicants` a
+                                      // WHERE c.`COMPANYID`= j.`COMPANYID` 
+                                      // AND  j.`JOBID`=53.`JOBID` 
+                                      // AND j2.`OCCUPATIONTITLE`
+                                      // AND j.`APPLICANTID`=202355896.`APPLICANTID`;
+
+
                    
                                      foreach ($cur as $result) { 
                                         }
                                       ?>
                                   <div class="col-md-8">
                                     <input class="form-control input-sm" id="COMPANYNAME" name="COMPANYNAME" value="<?php echo $result->COMPANYNAME;?>">
+                                    </div>
+                                </div>
+                              </div> 
+                              <div class="form-group">
+                                <div class="col-md-8">
+                                  <label class="col-md-4 control-label" for=
+                                  "COMPANYNAME">Occupation Name/Title:</label>
+                                  <div class="col-md-8">
+                                    <input class="form-control input-sm" id="COMPANYNAME" name="COMPANYNAME" value="<?php echo $result->OCCUPATIONTITLE;?>">
                                       
-                       
-                                      
-                                        </input>
                                   </div>
                                 </div>
                               </div>  
