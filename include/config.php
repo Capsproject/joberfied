@@ -1,8 +1,8 @@
 <?php
 defined('server') ? null : define("server", "localhost");
-defined('user') ? null : define ("user", "root") ;
-defined('pass') ? null : define("pass","");
-defined('database_name') ? null : define("database_name", "jobportaldb") ;
+defined('user') ? null : define ("user", "u801089727_job") ;
+defined('pass') ? null : define("pass","Joberfied123");
+defined('database_name') ? null : define("database_name", "u801089727_jobportal") ;
 
 $this_file = str_replace('\\', '/', __File__) ;
 $doc_root = $_SERVER['DOCUMENT_ROOT'];
