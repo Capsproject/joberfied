@@ -208,7 +208,7 @@
                     <label class="col-md-4 control-label" for=
                     "resume">Resume:</label>
                     <div class="col-md-8"> 
-                    <a class="btn btn-primary" href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>" target="_blank">View Resume</a>
+                    <a class="btn btn-primary" href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>">View Resume</a>
                     </div>
                 </div>
               </div>

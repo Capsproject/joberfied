@@ -117,8 +117,25 @@ global $mydb;
 	<div class="col-sm-12 slider">
 		 <h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>">Here</a></h3>
 	</div> 
+	<div class="form-group">
+                <div class="col-md-11">
+                  <label class="col-md-4 control-label" for=
+                  "SEX">Status: </label>
+
+                  <div class="col-md-8">
+                    <select class="form-control input-sm" name="REMARKS" any value="<?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?> required  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
+                        <option value="<?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?>" ><?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?></option>
+                        <option value="Pending">Pending</option>
+                        <option value="Process">Process</option>
+						<option value="Process">Interview</option>
+                        <option value="Approve">Approve</option>
+                        <option value="Decline">Decline</option>
+                    </select> 
+                  </div>
+                </div>
+              <!--</div>  
     <textarea class="form-control input-sm" name="REMARKS" style="height: 150px; resize: vertical;"><?php echo isset($jobreg->REMARKS) ? $jobreg->REMARKS : ""; ?></textarea>
-    </div>
+    </div>-->
 <div class="col-sm-12 submitbutton">
     <button type="submit" name="submit" class="btn btn-primary">Send</button>
 </div>
