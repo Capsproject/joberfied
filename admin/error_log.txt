@@ -91,3 +91,5 @@ Stack trace:
 [28-Nov-2023 23:27:42 Europe/Berlin] PHP Warning:  Undefined array key "ADMIN_USERID" in C:\xampp\htdocs\joberfied\admin\theme\templates.php on line 70
 [28-Nov-2023 23:27:42 Europe/Berlin] PHP Warning:  Attempt to read property "FULLNAME" on null in C:\xampp\htdocs\joberfied\admin\theme\templates.php on line 86
 [28-Nov-2023 23:27:42 Europe/Berlin] PHP Warning:  Undefined array key "ADMIN_USERID" in C:\xampp\htdocs\joberfied\admin\theme\templates.php on line 105
+[30-Nov-2023 04:41:52 Europe/Berlin] PHP Warning:  Undefined array key "ADMIN_USERID" in C:\xampp\htdocs\joberfied\admin\theme\templates.php on line 70
+[30-Nov-2023 04:41:53 Europe/Berlin] PHP Warning:  Undefined array key "ADMIN_USERID" in C:\xampp\htdocs\joberfied\admin\theme\templates.php on line 105

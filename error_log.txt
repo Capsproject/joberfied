@@ -118,3 +118,10 @@ Stack trace:
 [29-Nov-2023 07:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
 [29-Nov-2023 07:17:53 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
 [29-Nov-2023 07:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[30-Nov-2023 04:45:44 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[30-Nov-2023 04:45:44 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[30-Nov-2023 04:45:44 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
+[30-Nov-2023 04:45:51 Europe/Berlin] PHP Warning:  Attempt to read property "FILE_LOCATION" on null in C:\xampp\htdocs\joberfied\applicationform.php on line 86
+[30-Nov-2023 04:58:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$SALARIES in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[30-Nov-2023 04:58:48 Europe/Berlin] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\joberfied\hirring.php on line 73
+[30-Nov-2023 04:58:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$DURATION_EMPLOYEMENT in C:\xampp\htdocs\joberfied\hirring.php on line 74
