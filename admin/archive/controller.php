@@ -23,16 +23,17 @@ switch ($action) {
 	doupdateimage();
 	break;
    
-   
+	case 'restore':
+    doRestore();
+    break;
+
     case 'addfiles' :
 	doAddFiles();
 	break;
 
-	case 'approve' :
-	doApproved();
+	case 'checkid' :
+	Check_StudentID();
 	break;
-
-	
 	
 
 	}
@@ -50,7 +51,7 @@ switch ($action) {
 			redirect('index.php?view=add');
 		}else{	
 
-			$birthdate =  $_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
+			$birthdate =  date_format(date_create($_POST['BIRTHDATE']),'Y-m-d');
 
 			$age = date_diff(date_create($birthdate),date_create('today'))->y;
 
@@ -76,7 +77,7 @@ switch ($action) {
 					redirect("index.php?view=add");
 				}else{
 
-					@$datehired = date_format(date_create($_POST['DATEHIRED']),'Y-m-d');
+					@$datehired = date_format(date_create($_POST['EMP_HIREDDATE']),'Y-m-d');
 
 					$emp = New Employee(); 
 					$emp->EMPLOYEEID 		= $_POST['EMPLOYEEID'];
@@ -87,7 +88,7 @@ switch ($action) {
 					$emp->BIRTHDATE	 		= $birthdate;
 					$emp->BIRTHPLACE		= $_POST['BIRTHPLACE'];  
 					$emp->AGE			    = $age;
-					$emp->SEX 				= $_POST['optionsRadios']; 
+					$emp->SEX 				= $_POST['GENDER']; 
 					$emp->TELNO				= $_POST['TELNO'];
 					$emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
 					$emp->POSITION			= trim($_POST['POSITION']);
@@ -101,10 +102,18 @@ switch ($action) {
 					$emp->create(); 
 
 
-				 
-							
-						$autonum = New Autonumber(); 
-						$autonum->auto_update('employeeid');
+
+					$user = New User();
+					$user->USERID 			= $_POST['EMPLOYEEID'];
+					$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
+					$user->USERNAME			= $_POST['LNAME'];
+					$user->PASS				= sha1($_POST['EMPLOYEEID']);
+					$user->ROLE				= 'Employee';
+					$user->create();
+			 
+						
+					$autonum = New Autonumber(); 
+					$autonum->auto_update('employeeid');
 
 					message("New employee created successfully!", "success");
 					redirect("index.php");
@@ -115,6 +124,21 @@ switch ($action) {
 		 }
 		}
 
+	}
+
+	function doRestore() {
+		global $mydb;
+	
+		if (isset($_GET['id'])) {
+			$employeeId = $_GET['id'];
+	
+			$mydb->setQuery("UPDATE tblemployees SET ARCHIVE = 'Active' WHERE EMPLOYEEID = '{$employeeId}'");
+			$mydb->executeQuery();
+	
+			// Add any additional actions or redirects after restoring
+			// For example, you might want to redirect to the archived employees list
+			header("Location: index.php?view=archived");
+		}
 	}
 
 	function doEdit(){
@@ -128,7 +152,7 @@ switch ($action) {
 			redirect('index.php?view=add');
 		}else{	
 
-			$birthdate =  $_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
+			$birthdate =  date_format(date_create($_POST['BIRTHDATE']),'Y-m-d');
 
 			$age = date_diff(date_create($birthdate),date_create('today'))->y;
 		 	if ($age < 20 ){
@@ -137,7 +161,7 @@ switch ($action) {
 
 		    }else{
 
-		    	@$datehired = date_format(date_create($_POST['DATEHIRED']),'Y-m-d');
+		    	@$datehired = date_format(date_create($_POST['EMP_HIREDDATE']),'Y-m-d');
 
 					$emp = New Employee(); 
 					$emp->EMPLOYEEID 		= $_POST['EMPLOYEEID'];
@@ -158,11 +182,30 @@ switch ($action) {
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
 					$emp->EMPPASSWORD		= sha1($_POST['EMPLOYEEID']);
 					$emp->DATEHIRED			=  @$datehired;
-					$emp->COMPANYID			= $_POST['COMPANYID'];
-
+					$emp->COMPANYID			= $_POST['COMPANYID']; 
 					$emp->update($_POST['EMPLOYEEID']);
+
+
+					$user = New User(); 
+					$u_res = $user->single_user($_POST['EMPLOYEEID']);
+
+					if (isset($u_res)) {
+						# code...
+						$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
+						$user->USERNAME			= $_POST['LNAME'];
+						$user->PASS				= sha1($_POST['EMPLOYEEID']); 
+						$user->update($_POST['EMPLOYEEID']);
+					}else{
+						$user = New User();
+						$user->USERID 			= $_POST['EMPLOYEEID'];
+						$user->FULLNAME 		= $_POST['FNAME'] . ' ' .$_POST['LNAME'];
+						$user->USERNAME			= $_POST['LNAME'];
+						$user->PASS				= sha1($_POST['EMPLOYEEID']);
+						$user->ROLE				= 'Employee';
+						$user->create();
+					}
  
-			}
+
 				message("Employee has been updated!", "success");
 				// redirect("index.php?view=view&id=".$_POST['EMPLOYEEID']);
 		       redirect("index.php?view=edit&id=".$_POST['EMPLOYEEID']);
@@ -170,35 +213,19 @@ switch ($action) {
 
 
 		}
+  	
+	 
+	}
+
 } 
 	function doDelete(){
 		
-		// if (isset($_POST['selector'])==''){
-		// message("Select the records first before you delete!","error");
-		// redirect('index.php');
-		// }else{
-
-		// $id = $_POST['selector'];
-		// $key = count($id);
-
-		// for($i=0;$i<$key;$i++){
-
-		// 	$subj = New Student();
-		// 	$subj->delete($id[$i]);
-
-				
+		
+		
 				$id = 	$_GET['id'];
 
-				// $emp = New JobRegistration();
-	 		 	// $emp->delete($id);
-
-				  global $mydb;
-				  $sql = "DELETE FROM tbljobregistration WHERE REGISTRATIONID= '{$id}'";
-				//   $sql .= ";
-				//   $sql .= " LIMIT 1 ";
-				  $mydb->setQuery($sql);
-				  
-					if(!$mydb->executeQuery()) return false; 	
+				$emp = New Employee();
+	 		 	$emp->delete($id);
 			 
 		
 		// }
@@ -270,45 +297,6 @@ switch ($action) {
 			}
 			 
 		}
-function doApproved(){
-global $mydb;
-	if (isset($_POST['submit'])) {
-		# code...
-		$id = $_POST['JOBREGID'];
-		$applicantid = $_POST['APPLICANTID'];
-
-		$remarks = $_POST['REMARKS'];
-		$sql="UPDATE `tbljobregistration` SET `REMARKS`='{$remarks}',PENDINGAPPLICATION=0,HVIEW=0,DATETIMEAPPROVED=NOW() WHERE `REGISTRATIONID`='{$id}'";
-		$mydb->setQuery($sql);
-		$cur = $mydb->executeQuery();
-
-		if ($cur) {
-			# code...
-			$sql = "SELECT * FROM `tblfeedback` WHERE `REGISTRATIONID`='{$id}'";
-			$mydb->setQuery($sql);
-			$res = $mydb->loadSingleResult();
-			if (isset($res)) {
-				# code...
-				$sql="UPDATE `tblfeedback` SET `FEEDBACK`='{$remarks}' WHERE `REGISTRATIONID`='{$id}'";
-				$mydb->setQuery($sql);
-				$cur = $mydb->executeQuery();
-			}else{
-				$sql="INSERT INTO `tblfeedback` (`APPLICANTID`, `REGISTRATIONID`,`FEEDBACK`) VALUES ('{$applicantid}','{$id}','{$remarks}')";
-				$mydb->setQuery($sql);
-				$cur = $mydb->executeQuery(); 
-
-			}
-
-			message("Applicant is calling for an interview.", "success");
-			redirect("index.php?view=view&id=".$id); 
-		}else{
-			message("cannot be sve.", "error");
-			redirect("index.php?view=view&id=".$id); 
-		}
-
-
-	}
-}
 
  
 ?>

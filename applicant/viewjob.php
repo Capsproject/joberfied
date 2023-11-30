@@ -19,7 +19,7 @@ global $mydb;
 	$comp = $company->single_company($jobreg->COMPANYID);
 	 // `COMPANYNAME`, `COMPANYADDRESS`, `COMPANYCONTACTNO`
 
-	$sql = "SELECT * FROM `tblattachmentfile` WHERE `FILEID`=" .$jobreg->FILEID;
+	 $sql = "SELECT * FROM `tblattachmentfile` WHERE `USERATTACHMENTID`=" .$appl->APPLICANTID. " ORDER BY `ID` DESC LIMIT 1";
 	$mydb->setQuery($sql);
 	$attachmentfile = $mydb->loadSingleResult();
 
@@ -64,7 +64,7 @@ global $mydb;
 }
 </style>
 <form action="controller.php?action=approve" method="POST">
-<div class="col-sm-12 content-header" style="">View Details</div>
+<div class="col-sm-12 content-header" >View Details</div>
 <div class="col-sm-12 content-body" >  
 	<h3><?php echo $job->OCCUPATIONTITLE; ?></h3>
 	<input type="hidden" name="JOBREGID" value="<?php echo $jobreg->REGISTRATIONID;?>">
@@ -72,8 +72,6 @@ global $mydb;
 	<div class="col-sm-6">
 		<ul>
             <li><i class="fp-ht-bed"></i>Required No. of Employee's : <?php echo $job->REQ_NO_EMPLOYEES; ?></li>
-            <li><i class="fp-ht-food"></i>Salary : <?php echo number_format($job->SALARIES,2);  ?></li>
-            <li><i class="fa fa-sun-"></i>Duration of Employment : <?php echo $job->DURATION_EMPLOYEMENT; ?></li>
         </ul>
 	</div> 
 	<div class="col-sm-6">
@@ -100,7 +98,7 @@ global $mydb;
 <div class="col-sm-12 content-footer">
 <p><i class="fa fa-paperclip"></i>  Attachment Files</p>
 	<div class="col-sm-12 slider">
-		 <h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>">Here</a></h3>
+		 <h3>Download Resume <a href="<?php echo web_root.'applicant/'.$attachmentfile->FILE_LOCATION; ?>" target="_blank">Here</a></h3>
 	</div>  
 	<div class="col-sm-12">
 		<p>Feedback</p>

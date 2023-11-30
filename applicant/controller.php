@@ -27,34 +27,48 @@ switch ($action) {
 	}
 
 	function doEdit(){
-		$birthdate =  date_format(date_create($_POST['BIRTHDATE']),'Y-m-d');
-
-			$age = date_diff(date_create($birthdate),date_create('today'))->y;
-		 	if ($age < 20 ){
-		       message("Invalid age. 20 years old and above is allowed.", "error");
-		       redirect("index.php?view=accounts");
-
-		    }else{ 
-					$applicant =New Applicants(); 
-					$applicant->FNAME = $_POST['FNAME'];
-					$applicant->LNAME = $_POST['LNAME'];
-					$applicant->MNAME = $_POST['MNAME'];
-					$applicant->ADDRESS = $_POST['ADDRESS'];
-					$applicant->SEX = $_POST['optionsRadios'];
-					$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
-					$applicant->BIRTHDATE = $birthdate;
-					$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
-					$applicant->AGE = $age; 
-					$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
-					$applicant->CONTACTNO = $_POST['TELNO'];
-					$applicant->DEGREE = $_POST['DEGREE'];
-					$applicant->update($_SESSION['APPLICANTID']);
-
-					message("Account has been updated!", "success");
-					redirect("index.php?view=accounts");
-	    	}
+		$birthdate = date_format(date_create($_POST['BIRTHDATE']),'Y-m-d');
+		$age = date_diff(date_create($birthdate), date_create('today'))->y;
+	
+		if ($age < 0){
+			message("Invalid age. 0 years old and above is allowed.", "error");
+			redirect("index.php?view=accounts");
+		} else {
+			$applicant = new Applicants();
+			$applicant->FNAME = $_POST['FNAME'];
+			$applicant->LNAME = $_POST['LNAME'];
+			$applicant->MNAME = $_POST['MNAME'];
+			$applicant->ADDRESS = $_POST['ADDRESS'];
+			$applicant->SEX = $_POST['SEX'];
+			$applicant->CIVILSTATUS = $_POST['CIVILSTATUS'];
+			$applicant->BIRTHDATE = $birthdate;
+			$applicant->BIRTHPLACE = $_POST['BIRTHPLACE'];
+			$applicant->AGE = $age;
+			$applicant->EMAILADDRESS = $_POST['EMAILADDRESS'];
+			$applicant->CONTACTNO = $_POST['TELNO'];
+			$applicant->DEGREE = $_POST['DEGREE'];
+			$applicantID = $_SESSION['APPLICANTID'];
+			$applicant->update($applicantID);
+	
+			// Update resume if a new one is uploaded
+			$picture = UploadImage();
+			if (!empty($picture)) {
+				$location = "photos/" . $picture;
+	
+				// Assuming you have a database connection available globally
+				global $mydb;
+				$sql = "UPDATE `tblattachmentfile` SET `FILE_NAME`='Resume', `FILE_LOCATION`='$location' WHERE `USERATTACHMENTID`='$applicantID'";
+				$mydb->setQuery($sql);
+				$res = $mydb->executeQuery();
+	
+				message("File has been uploaded!", "success");
+			}
+	
+			message("Account has been updated!", "success");
+			redirect("index.php?view=accounts");
+		}
 	}
-   
+	
 	function doupdateimage(){
  
 			$errofile = $_FILES['photo']['error'];

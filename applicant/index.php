@@ -9,7 +9,7 @@ switch ($view) {
 	case 'appliedjobs' :
 	    $title="Profile";	
         $_SESSION['appliedjobs']	='active' ; 
-		$content ='`profile.php';
+		$content ='profile.php';
 		break;
 
 	case 'notification' :

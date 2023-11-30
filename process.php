@@ -29,34 +29,34 @@ function doSubmitApplication() {
 		@$location = "photos/". $picture ;
 
 
-		if ($picture=="") {
-			# code...
-			redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
-		}else{ 
+		// if ($picture=="") {
+		// 	# code...
+		// 	redirect(web_root."index.php?q=apply&job=".$jobid."&view=personalinfo");
+		// }else{ 
 			
 			if (isset($_SESSION['APPLICANTID'])) {
 
-				$sql = "INSERT INTO `tblattachmentfile` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
-				VALUES ('". date('Y').$fileid->AUTO."','{$_SESSION['APPLICANTID']}','Resume','{$location}','{$jobid}')";
-				$mydb->setQuery($sql); 
-				$res = $mydb->executeQuery(); 
+				// $sql = "INSERT INTO `tblattachmentfile` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
+				// VALUES ('". date('Y').$fileid->AUTO."','{$_SESSION['APPLICANTID']}','Resume','{$location}','{$jobid}')";
+				// $mydb->setQuery($sql); 
+				// $res = $mydb->executeQuery(); 
 
 				doUpdate($jobid,$fileid->AUTO);
 				
 			}else{
 				 
-				$sql = "INSERT INTO `tblattachmentfile` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
-				VALUES ('". date('Y').$fileid->AUTO."','". date('Y').$applicantid->AUTO."','Resume','{$location}','{$jobid}')";
-				// echo $sql;exit;
-				$mydb->setQuery($sql); 
-				$res = $mydb->executeQuery(); 
+				// $sql = "INSERT INTO `tblattachmentfile` (FILEID,`USERATTACHMENTID`, `FILE_NAME`, `FILE_LOCATION`, `JOBID`) 
+				// VALUES ('". date('Y').$fileid->AUTO."','". date('Y').$applicantid->AUTO."','Resume','{$location}','{$jobid}')";
+				// // echo $sql;exit;
+				// $mydb->setQuery($sql); 
+				// $res = $mydb->executeQuery(); 
 
 				doInsert($jobid,$fileid->AUTO); 
 
 				$autonum = New Autonumber();
 				$autonum->auto_update('APPLICANT');
 			}
-		}
+		// }
 
 		$autonum = New Autonumber();
 	    $autonum->auto_update('FILEID'); 
@@ -115,7 +115,7 @@ function doInsert($jobid=0,$fileid=0) {
 			$jobreg->create();
   
 
-			message("Your application already submitted. Please wait for the company confirmation if you are qualified to this job.","success");
+			message("Your application already submitted. Please wait for the company confirmation if your are qualified to this job.","success");
 			redirect("index.php?q=success&job=".$result->JOBID);
 
 			
@@ -153,6 +153,14 @@ function doUpdate($jobid=0,$fileid=0) {
  
 	}
 }
+
+function generateRandomApplicantID() {
+    $randomNumber = rand(10000, 99999);
+    $currentYear = date('Y');
+    $applicantID = $currentYear . $randomNumber;
+
+    return $applicantID;
+}
 function doRegister(){
 	global $mydb;
 	if (isset($_POST['btnRegister'])) { 
@@ -168,9 +176,11 @@ function doRegister(){
 
 			$autonum = New Autonumber();
 			$auto = $autonum->set_autonumber('APPLICANT');
-			 
+			
+			$applicantID = generateRandomApplicantID();
+
 			$applicant =New Applicants();
-			$applicant->APPLICANTID = date('Y').$auto->AUTO;
+			$applicant->APPLICANTID = $applicantID;
 			$applicant->FNAME = $_POST['FNAME'];
 			$applicant->LNAME = $_POST['LNAME'];
 			$applicant->MNAME = $_POST['MNAME'];
@@ -187,7 +197,20 @@ function doRegister(){
 			$applicant->DEGREE = $_POST['DEGREE'];
 			$applicant->create();
 
-
+			// upload resume here
+			global $mydb;
+			$picture = UploadImage();
+			$location = "photos/". $picture ;
+	
+			$sql = "INSERT INTO `tblattachmentfile` (`JOBID`, `FILE_NAME`, `FILE_LOCATION`, `USERATTACHMENTID`) 
+             VALUES ('', 'Resume', '{$location}', '{$applicantID}')";
+        	$mydb->setQuery($sql);
+			$res = $mydb->executeQuery();
+	
+			message("File has been uploaded!", "success");
+			// redirect("index.php?tab=files");
+				
+				
  
 			$autonum = New Autonumber();
 			$autonum->auto_update('APPLICANT');
@@ -254,4 +277,3 @@ function UploadImage($jobid=0){
 
 
 ?>
-

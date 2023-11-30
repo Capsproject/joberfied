@@ -19,6 +19,10 @@ switch ($action) {
 	doDelete();
 	break;
 
+	case 'archive':
+        doArchive();
+        break;
+
 	case 'photos' :
 	doupdateimage();
 	break;
@@ -52,18 +56,28 @@ switch ($action) {
 
 			$age = date_diff(date_create($birthdate),date_create('today'))->y;
 
-			if ($age < 20){
+			if ($age < 1){
 			message("Invalid age. 20 years old and above is allowed.", "error");
 			redirect("index.php?view=add");
 
 			}else{
 			 
-
+				$jobid = $_POST['jobid'];
+				$empid = $_POST['EMPLOYEEID'];
+				$regid = $_POST['regid'];
 
 				$sql = "SELECT * FROM tblemployees WHERE EMPLOYEEID='" .$_POST['EMPLOYEEID']. "'";
 				$mydb->setQuery($sql);
 				$cur = $mydb->executeQuery();
 				$maxrow = $mydb->num_rows($cur);
+				
+				$sql1 = "DELETE FROM tbljobregistration WHERE REGISTRATIONID='" . $regid . "'";
+				// echo $sql . $sql1;
+				// $mydb -> loadingSingleResult($sql);
+
+				$mydb -> setQuery($sql1);
+				$cur1 = $mydb->executeQuery();
+
 
 
 				// $res = mysqli_query($sql) or die(mysql_error());
@@ -85,9 +99,9 @@ switch ($action) {
 					$emp->BIRTHDATE	 		= $birthdate;
 					$emp->BIRTHPLACE		= $_POST['BIRTHPLACE'];  
 					$emp->AGE			    = $age;
-					$emp->SEX 				= $_POST['optionsRadios']; 
+					// $emp->SEX 				= $_POST['GENDER']; 
 					$emp->TELNO				= $_POST['TELNO'];
-					$emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
+					// $emp->CIVILSTATUS		= $_POST['CIVILSTATUS']; 
 					$emp->POSITION			= trim($_POST['POSITION']);
 					// $emp->DEPARTMENTID		= $_POST['DEPARTMENTID'];
 					// $emp->DIVISIONID		= $_POST['DIVISIONID'];
@@ -95,7 +109,7 @@ switch ($action) {
 					$emp->EMPUSERNAME		= $_POST['EMPLOYEEID'];
 					$emp->EMPPASSWORD		= sha1($_POST['EMPLOYEEID']);
 					$emp->DATEHIRED			=  @$datehired;
-					$emp->COMPANYID			= $_POST['COMPANYID'];
+					// $emp->COMPANYID			= $_POST['COMPANYID'];
 					$emp->create(); 
 
 
@@ -111,7 +125,12 @@ switch ($action) {
 						
 					$autonum = New Autonumber(); 
 					$autonum->auto_update('employeeid');
-
+					
+					// DELETE FROM `tbljobregistration` WHERE JOBID = 53 AND APPLICANTID = 2023025
+					// $sql1 = "SELECT * FROM tbljobregistration WHERE APPLICANTID='" .$_POST['EMPLOYEEID']. "' AND JOBID='" .$_POST['jobid']. "'";
+					// $mydb->setQuery($sql1);
+				  
+					// $mydb->executeQuery();
 					message("New employee created successfully!", "success");
 					redirect("index.php");
 
@@ -122,6 +141,24 @@ switch ($action) {
 		}
 
 	}
+
+
+	function doArchive() {
+		global $mydb;
+	
+		if (isset($_GET['id'])) {
+			$employeeId = $_GET['id'];
+	
+			$mydb->setQuery("UPDATE tblemployees SET ARCHIVE = 'Archived' WHERE EMPLOYEEID = '{$employeeId}'");
+			$mydb->executeQuery();
+	
+			// Add any additional actions or redirects after archiving
+			// For example, you might want to redirect to the employee list
+			header("Location: index.php");
+		}
+	}
+	
+	
 
 	function doEdit(){
 	if(isset($_POST['save'])){
@@ -202,19 +239,7 @@ switch ($action) {
 } 
 	function doDelete(){
 		
-		// if (isset($_POST['selector'])==''){
-		// message("Select the records first before you delete!","error");
-		// redirect('index.php');
-		// }else{
-
-		// $id = $_POST['selector'];
-		// $key = count($id);
-
-		// for($i=0;$i<$key;$i++){
-
-		// 	$subj = New Student();
-		// 	$subj->delete($id[$i]);
-
+		
 		
 				$id = 	$_GET['id'];
 
