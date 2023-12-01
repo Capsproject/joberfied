@@ -77,25 +77,27 @@
             ?>
 
   
-              <div class="container" style="width: 80%;">
+              <div class="content">
                 <div class="info-blocks-in" style="background-color: #fff; border-width: 1px; border-color: grey; box-shadow: 0 2px 3px 0 #ccc; border-radius: 10px; margin-top: 30px; padding-bottom: 30px;">
                 <div class="content">
                 <img src="plugins/home-plugins/img/peso_logo.png" class="logopost" alt="">
                
       
        <div class="user-details">
-        <div class="user-name"><p>PESO MABINI</p></div>
+        <div class="user-name">PESO MABINI</div>
         <div class="post-date"><?php echo $job->DATEPOSTED; ?></div>
       </div>
     </div>
 <!--------------------CAPTION------------------------>
-    <div class="container" style="width: auto;">
+    <div class="container" style="width: auto; line-height: 1.5;">
+    
     <?php 
         $caption = str_replace(array('\r', '\n'), array('<br>', ''), $job->CAPTION);
         $words = explode(" ", $caption);
         $shortCaption = implode(" ", array_slice($words, 0, 10));
         $remainingCaption = implode(" ", array_slice($words, 10));
     ?>
+ 
     <div class="caption">
         <span class="short-caption"><?php echo $shortCaption; ?></span>
         <?php if (count($words) > 10): ?>

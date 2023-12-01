@@ -30,7 +30,7 @@
                             <textarea rows="10" cols="100" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter your message" minlength="5" data-validation-minlength-message="Min 5 characters" maxlength="999" style="resize:none"></textarea>
                         </div>
                     </div>
-                    <div id="success"></div><!-- For success/fail messages -->
+                    <div id="success" style="padding-top: 5px; "></div>
                     <button type="button" id="sendEmail" class="btn btn-primary pull-right">Send</button><br />
                 </form>
             </div>
