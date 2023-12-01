@@ -64,7 +64,10 @@
                                                 <p>Location :  <?php echo  $result->COMPANYADDRESS; ?></p>
                                             </div>
                                         </div>
-                                          <a href="<?php echo web_root; ?>index.php?q=apply&job=<?php echo $result->JOBID;?>&view=personalinfo" class="btn btn-main btn-next-tab">Apply Now !</a>
+                                        <a href="<?php echo isset($_SESSION['APPLICANTID']) ? web_root . 'index.php?q=apply&job=' . $result->JOBID . '&view=personalinfo' : '#myModal'; ?>" class="btn btn-main btn-next-tab pull-right login" data-toggle="modal" >
+    <?php echo isset($_SESSION['APPLICANTID']) ? 'Apply Now!' : 'Login to Apply'; ?>
+</a>
+
                                     </div>
                                 </div>
                             </div> 

@@ -78,7 +78,7 @@
             
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-sign-out"> </i>Logout</a>
-            <ul class="dropdown-menu" style="width: 100%; " >
+            <ul class="dropdown-menu" style="width: 80%; " >
               <!-- message -->
               <p style=" text-align: center;">Are you sure you want to logout?</p>
               <!-- Menu Footer-->

@@ -11,9 +11,9 @@
         <div class="editContent">
         <h3>What is Joberfied?</h3>
         </div>
-        <div class="editContent"  style="height:235px;">
+        <div class="editContent"  style="height: auto;">
         
-          <p style="color: black;"> 
+          <p style="color: black; "> 
           &nbsp;&nbsp; The JOBERFIED job portal represents a significant step forward in the ongoing digital transformation of the job market. The portal's comprehensive features and services will provide job seekers and employers with a range of tools to connect and collaborate, making it easier to find suitable employment opportunities and streamlining the recruitment process. As such, the portal has the potential to make a real difference in the lives of the residents of Mabini, creating new opportunities for growth and development and contributing to the overall prosperity of the area.<br/><br/>
 </p>
         </div> 
@@ -30,7 +30,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  text-align: center;
+
   background-color: #191a1c;
   color: #fff;
 }
@@ -44,6 +44,7 @@ body {
 .about {
   width: 95%;
   margin: auto;
+  text-align: center;
 }
 
 img {
@@ -65,6 +66,7 @@ img {
   left: 0;
   right: 0;
   opacity: 0;
+  
 }
 
 

@@ -1,9 +1,9 @@
-<section id="content">
+<section id="content" >
     <div class="container content">    
      <p> <?php check_message();?></p>      
 		<form class="row form-horizontal span6  wow fadeInDown" action="process.php?action=register" method="POST" enctype="multipart/form-data">
 		<h2 class=" ">Personal Info</h2>
-		<div class="row"> 
+		<div class="container"> 
 		    <div class="form-group">
 		        <div class="col-md-8">
                     <label class="col-md-4 control-label" for="picture">Resume:</label> 
@@ -247,7 +247,7 @@ padding: 2px 0px;
 font-size: 13px;
 margin-left: 33%;
 float: left;
-width: 100%;
+width: 60%;
 }
 
 /* Add a green text color and a checkmark when the requirements are right */
@@ -361,7 +361,9 @@ myInput.onkeyup = function() {
 			     
 			     </div>
 			    </div>
-			</div>    
+			</div> 
+		</div>
+
 		</form>
 	</div>
 </section>

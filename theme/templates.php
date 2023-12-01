@@ -297,8 +297,8 @@
         </div>
         <div class="col-lg-6">
           <ul class="social-network">
-            <li><a href="https://www.facebook.com/PESO.Mabini.Batangas" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" data-placement="top" title="Email"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="https://www.facebook.com/PESO.Mabini.Batangas" data-placement="top" title="Facebook"><i class="fab fa-facebook" ></i></a></li>
+            <li><a href="mailto:joberfied@gmail.com" data-placement="top" title="Email"><i class="fa fa-envelope"></i></a></li>
             
           </ul>
         </div>

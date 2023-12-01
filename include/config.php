@@ -14,3 +14,8 @@ $server_root = str_replace ('config/config.php' ,'', $this_file);
 define ('web_root' , $web_root);
 define('server_root' , $server_root);
 ?>
+
+<!--defined('server') ? null : define("server", "localhost");
+defined('user') ? null : define ("user", "u801089727_job") ;
+defined('pass') ? null : define("pass","Joberfied123");
+defined('database_name') ? null : define("database_name", "u801089727_jobportal-->
