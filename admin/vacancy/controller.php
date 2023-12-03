@@ -115,13 +115,11 @@ switch ($action) {
             $job->CATEGORY = $_POST['CATEGORY'];
             $job->OCCUPATIONTITLE = $_POST['OCCUPATIONTITLE'];
             $job->REQ_NO_EMPLOYEES = $_POST['REQ_NO_EMPLOYEES'];
-            $job->SALARIES = $_POST['SALARIES'];
-            $job->DURATION_EMPLOYEMENT = $_POST['DURATION_EMPLOYEMENT'];
             $job->QUALIFICATION_WORKEXPERIENCE = $_POST['QUALIFICATION_WORKEXPERIENCE'];
             $job->JOBDESCRIPTION = $_POST['JOBDESCRIPTION'];
             $job->PREFEREDSEX = $_POST['PREFEREDSEX'];
             $job->SECTOR_VACANCY = $_POST['SECTOR_VACANCY'];
-			
+			$job->CAPTION = $_POST['CAPTION'];
             // Handle image update
             if (!empty($_FILES["JOBPHOTO"]["name"])) {
                 // Upload and get the new image path
