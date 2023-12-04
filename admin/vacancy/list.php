@@ -55,9 +55,7 @@
               <a title="Edit" href="index.php?view=edit&id='.$result->JOBID.'"  class="btn btn-info btn-xs  ">
                        <span class="fa fa-edit fw-fa"></span> Edit</a> 
              
-              <a title="Delete" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteModal">
-                <span class="fa fa-trash-o fw-fa"> Remove</span>
-              </a>
+            
             </td>';
           // Add the centered modal
           echo '<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
